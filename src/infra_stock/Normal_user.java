@@ -2265,6 +2265,11 @@ public class Normal_user extends javax.swing.JFrame {
         });
 
         jButton2.setText("modifier");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -3761,6 +3766,78 @@ public class Normal_user extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+       
+            int row = jTable_c12.getSelectedRow();
+            String id_c12 = jTable_c12.getValueAt(row, 0).toString();
+
+            String query = "SELECT *\n"
+                    + "FROM C12\n"
+                    + "LEFT JOIN employe emp ON C12.id_emp = emp.id_employe\n"
+                    + "JOIN departement dep ON C12.id_dep = dep.id_dep\n"
+                    + "JOIN relation_c12_pro re ON C12.id_c12 = re.id_c12\n"
+                    + "JOIN produit pr ON re.id_pro = pr.id "
+                    + "where C12.id_c12='" + id_c12 + "'";
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("id");
+            model.addColumn("Designation");
+            model.addColumn("Nature");
+            model.addColumn("Sous-Ch");
+            model.addColumn("Famille");
+            model.addColumn("demandé");
+            model.addColumn("livré");
+            model.addColumn("Total TTC");
+
+            try {
+                Connection conn1 = Connect.ConnectDB("infra2");
+                Statement stm = conn1.createStatement();
+                ResultSet rs = stm.executeQuery(query);
+                int id = 0;
+                float prix_tot = 0;
+
+                while (rs.next()) {
+
+                    id += 1;
+                    Float prix = rs.getFloat("prix");
+                    int quanti_livr = rs.getInt("qua_livre");
+                    float somme = prix * quanti_livr;
+                    prix_tot += somme;
+                    model.addRow(new Object[]{
+                        id,
+                        rs.getString("designation"),
+                        rs.getString("type_C_N"),
+                        rs.getString("sous"),
+                        rs.getString("type_sous"),
+                        rs.getInt("qua_demende"),
+                        rs.getInt("qua_livre"),
+                        somme
+                    });
+                }
+                jLabel_total_c12.setText(prix_tot + "");
+
+                jLabel_c_nc_c12.setText(jTable_c12.getValueAt(row, 5).toString());
+                jLabel_date_c12.setText(jTable_c12.getValueAt(row, 2).toString());
+                jLabel_livr_c12.setText(jTable_c12.getValueAt(row, 3).toString());
+                jLabel_dep_c12.setText(jTable_c12.getValueAt(row, 6).toString());
+                jLabel_employe_c12.setText(jTable_c12.getValueAt(row, 7).toString());
+                jLabel_num_c12.setText(jTable_c12.getValueAt(row, 1).toString());
+                jLabel_sous_c12.setText(jTable_c12.getValueAt(row, 4).toString());
+                jTextArea_rem_c12.setText(jTable_c12.getValueAt(row, 8).toString());
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+                e.getSQLState();
+                e.printStackTrace();
+            }
+
+            TableColumnModel columnModel = jtable_aficher_c12.getColumnModel();
+            jtable_aficher_c12.setModel(model);
+            jDialog_afficher_c12.setVisible(true);
+        
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
