@@ -1,0 +1,21 @@
+REGIMENT ECOLE  	 فوج المدرسة                             
+DETACHEMENT  MAKTAA  KHEIRA 	مفرزة مقطع خيرة                                                         
+DETACHEMENT   BOUDJEBROUNE	مفرزة بوجـبرون  
+SERVICE   INFRASTRUCTURE	مصلحة المنشات القاعدية                                                                  
+SERVICE   INFRASTRUCTURE	مصلحة المنشأت القاعدية                                                         
+SERVICE   INTENDANCE	مصلحة المعـتمدية                                                                                 	
+SERVICE   MATERIEL	مصلحة الـعـتاد                                                                                          	
+SECRETARIAT  ECOLE مــقـر الـقيادة                                                               
+C4 ISR	منضومة القيادة و الإعلام                                                                                                  	 
+D E S U	مديرية التعليم العالي الجامعي                                                                                             	
+D G E	المديرية العامة للتعليم                                                                                                       	
+D S M T		دائرة الدعائم والوسائل الإشارة                                                                   
+BUREAU  SECURITE  ARMEE 	  مكتب الأمن و الوقاية                                                                                  	
+D P D M	 مديرية التخطيط و الوثائق و الوسائل                                                                                                                                                                                                                                       
+CIO	 مكتب الإيصال و التوجيه                                                                                                                                                                                                                                                
+BRIGADE ELEVE	لواء الطلبة                                                                                                    	
+INFIRMERIE	 مصلحة العيادة        
+DETACHEMENT  MAKTAAR  KHEIRA مفرزة مقطع خيرة                                                         
+	
+	 
+   
